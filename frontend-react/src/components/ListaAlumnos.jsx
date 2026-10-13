@@ -4,8 +4,15 @@ export function ListaAlumnos() {
     const [alumnos, setAlumnos] = useState ([])
 
 useEffect (() => {
-    console.log ("ListaAlumnos apareció")
+async function cargarAlumnos() {
+    const respuesta = await fetch ("http://localhost:5173/alumnos")
+    const datos = await respuesta.json()
+    console.log(datos)
+    
+}
+cargarAlumnos()
 },[])
+
     return (
     <h2>Alumno</h2>
     )
